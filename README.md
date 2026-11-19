@@ -25,12 +25,29 @@ The following video is a visual walkthrough for setting up Vencord from source a
 
 **[How to Install Custom Plugins in Vencord — YouTube](https://www.youtube.com/watch?v=XmVNRKrphlw)**
 
-The video demonstrates Vencord. Equicord is a Vencord fork and follows a similar source-build workflow, but use the official Equicord guides for Equicord-specific instructions and any command differences:
+The video demonstrates Vencord. Equicord follows a similar source-build workflow. **If you are installing Equicord, use the Equicord repository command below instead of cloning Vencord as shown in the video:**
 
-- [Equicord — Building from Source](https://docs.equicord.org/installing/#building-from-source)
-- [Equicord — Installing Custom Plugins](https://docs.equicord.org/installing/custom-plugin/)
+```bash
+git clone https://github.com/Equicord/Equicord
+cd Equicord
+```
 
-For Vencord, refer to the [official Vencord installation guide](https://docs.vencord.dev/installing/) if any commands in the video differ from the current instructions.
+Continue with the equivalent steps in the video, using the Equicord source folder. Before adding the plugin, install Equicord's dependencies:
+
+```bash
+pnpm install --frozen-lockfile
+```
+
+Then download this repository as a ZIP, extract it, and move the inner **`firstMessageGuard`** folder into Equicord's **`src/userplugins/`** folder. Do not move individual files separately.
+
+Build and inject Equicord:
+
+```bash
+pnpm build
+pnpm inject
+```
+
+For Equicord-specific prerequisites or updated commands, use the [official Equicord — Building from Source guide](https://docs.equicord.org/installing/#building-from-source) and [official custom plugin guide](https://docs.equicord.org/installing/custom-plugin/). For Vencord, refer to the [official Vencord installation guide](https://docs.vencord.dev/installing/) if any commands in the video differ from the current instructions.
 
 ### Already built Vencord or Equicord from source?
 
