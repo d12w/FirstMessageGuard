@@ -38,7 +38,7 @@ Continue with the equivalent steps in the video, using the Equicord source folde
 pnpm install --frozen-lockfile
 ```
 
-Then download this repository as a ZIP, extract it, and move the inner **`firstMessageGuard`** folder into Equicord's **`src/userplugins/`** folder. Do not move individual files separately.
+Then download this repository as a ZIP, extract it, and move the inner **`firstMessageGuard`** folder into **`src/userplugins/`**. If the **`userplugins`** folder does not exist yet, create it inside **`src/`** first. Do not move individual plugin files separately.
 
 Build and inject Equicord:
 
@@ -47,16 +47,19 @@ pnpm build
 pnpm inject
 ```
 
-For Equicord-specific prerequisites or updated commands, use the [official Equicord — Building from Source guide](https://docs.equicord.org/installing/#building-from-source) and [official custom plugin guide](https://docs.equicord.org/installing/custom-plugin/). For Vencord, refer to the [official Vencord installation guide](https://docs.vencord.dev/installing/) if any commands in the video differ from the current instructions.
+For Equicord-specific prerequisites or updated commands, use the [official Equicord — Building from Source guide](https://docs.equicord.org/installing/#building-from-source) and [official custom plugin guide](https://docs.equicord.org/installing/custom-plugin/).
+
+For Vencord, use the [official Vencord source installation guide](https://docs.vencord.dev/installing/) and [official custom plugin guide](https://docs.vencord.dev/installing/custom-plugins/) if any commands or steps in the video differ from the current instructions.
 
 ### Already built Vencord or Equicord from source?
 
 You only need the plugin folder:
 
 1. Download this repository as a ZIP and extract it.
-2. Move the inner **`firstMessageGuard`** folder into your source directory’s **`src/userplugins/`** folder. Do not move individual files separately.
-3. Run **`pnpm build`** from your Vencord / Equicord source directory.
-4. Fully restart Discord and enable **FirstMessageGuard** in **Settings → Plugins**. Run **`pnpm inject`** only if your source build has not yet been injected into Discord.
+2. Open your Vencord / Equicord source directory. If **`src/userplugins/`** does not exist, create the **`userplugins`** folder inside **`src/`**.
+3. Move the entire inner **`firstMessageGuard`** folder into **`src/userplugins/`**. Do not move individual files separately.
+4. Run **`pnpm build`** from your source directory.
+5. Fully restart Discord and enable **FirstMessageGuard** in **Settings → Plugins**. Run **`pnpm inject`** only if your source build has not yet been injected into Discord.
 
 The plugin depends on the built-in **`MessageEventsAPI`**. The client enables this dependency automatically when FirstMessageGuard is enabled.
 
@@ -70,3 +73,7 @@ For Vencord and Equicord source builds with UserPlugins support and the `Message
 - Only send paths that pass through the client’s `MessageEventsAPI` pre-send hook can be intercepted.
 - If the confirmation dialog cannot be opened, the plugin fails open so normal sending is not blocked.
 - Re-test after major Discord, Vencord, or Equicord updates.
+
+## License
+
+Licensed under **GNU General Public License v3.0 or later**. See [LICENSE](LICENSE).
